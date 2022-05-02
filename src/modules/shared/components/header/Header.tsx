@@ -16,7 +16,7 @@ const Header = ({ onChange }: HeaderProps) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={styles.appBar}>
         <Container>
           <Toolbar sx={styles.toolbar}>
             <Logo>
@@ -117,4 +117,7 @@ const styles = {
   toolbar: {
     padding: [0, 0, 0, 0, 0],
   },
+  appBar: {
+    background: "linear-gradient(-30deg, #d754ad 0%, #d754ad 10%, #f96785 62%, #fe7333 100%)"
+  }
 };
