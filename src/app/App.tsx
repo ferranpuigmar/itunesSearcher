@@ -1,10 +1,17 @@
+import Header from "../modules/shared/components/header/Header";
 
 const App = () => {
+
+  const handleChange = (value: string) => {
+    console.log('value: ', value)
+  }
+
   return (
     <div id="App">
-      <header className="App-header">
+      <Header onChange={handleChange} />
+      <main>
         hola
-      </header>
+      </main>
     </div>
   );
 }
