@@ -3,9 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import App from './app/App';
-import './index.css';
 import { createTheme, ThemeProvider } from '@mui/material';
-import Header from './modules/shared/components/header/Header';
+import './index.css';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

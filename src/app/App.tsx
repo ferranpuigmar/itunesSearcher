@@ -1,4 +1,5 @@
-import Header from "../modules/shared/components/header/Header";
+import AlbumList from "modules/home/components/albumList/AlbumList";
+import Header from "modules/home/components/header/Header";
 
 const App = () => {
 
@@ -10,7 +11,7 @@ const App = () => {
     <div id="App">
       <Header onChange={handleChange} />
       <main>
-        hola
+        <AlbumList albums={[]} />
       </main>
     </div>
   );

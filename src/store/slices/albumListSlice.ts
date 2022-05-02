@@ -1,12 +1,12 @@
 import searchByTermsService, {
   SearchResponse,
-  SearchResult,
+  SearchAlbumResult,
 } from "./../../services/searchByTerms";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 export interface AlbumListState {
-  albums: null | SearchResult[];
+  albums: null | SearchAlbumResult[];
   loading: boolean;
   error: any;
 }
@@ -37,7 +37,7 @@ export const albumListSlice = createSlice({
       .addCase(searchByTermsAsync.fulfilled, (state, action) => {
         const payload = action.payload as SearchResponse;
         state.loading = false;
-        state.albums = payload.results as SearchResult[];
+        state.albums = payload.results as SearchAlbumResult[];
       })
       .addCase(searchByTermsAsync.rejected, (state, action) => {
         state.loading = false;
