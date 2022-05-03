@@ -22,7 +22,7 @@ const CustomTable = <DataType extends object>({ columns, data, loading }: TableP
     <WrapperTable>
       {loading && <WrapperSpinner><CircularProgress /></WrapperSpinner>}
       <TableContainer component={Paper} sx={TableContainerStyles}>
-        <Table {...getTableProps()} aria-label="customized table">
+        <Table stickyHeader {...getTableProps()} aria-label="sticky table">
           <TableHead>
             {
               headerGroups.map(headerGroup => (
@@ -97,7 +97,7 @@ const WrapperSpinner = styled('div')(() => ({
 }))
 
 const TableContainerStyles = {
-  minHeight: "80vh"
+  maxHeight: "80vh"
 }
 
 export default CustomTable;
