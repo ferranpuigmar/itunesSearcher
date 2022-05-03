@@ -15,35 +15,33 @@ const Header = ({ onChange }: HeaderProps) => {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={styles.appBar}>
-        <Container>
-          <Toolbar sx={styles.toolbar}>
-            <Logo>
-              <IconLogo />
-            </Logo>
-            <Typography
-              variant="body1"
-              noWrap
-              component="div"
-              sx={styles.title}
-            >
-              Itunes Searcher
-            </Typography>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                onChange={handleChange}
-              />
-            </Search>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </Box>
+    <AppBar position="sticky" sx={styles.appBar}>
+      <Container>
+        <Toolbar sx={styles.toolbar}>
+          <Logo>
+            <IconLogo />
+          </Logo>
+          <Typography
+            variant="body1"
+            noWrap
+            component="div"
+            sx={styles.title}
+          >
+            Itunes Searcher
+          </Typography>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+              onChange={handleChange}
+            />
+          </Search>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
 

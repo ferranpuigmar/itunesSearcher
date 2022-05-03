@@ -21,7 +21,7 @@ const CustomTable = <DataType extends object>({ columns, data, loading }: TableP
   return (
     <WrapperTable>
       {loading && <WrapperSpinner><CircularProgress /></WrapperSpinner>}
-      <TableContainer component={Paper} sx={{ minHeight: "80vh" }}>
+      <TableContainer component={Paper} sx={TableContainerStyles}>
         <Table {...getTableProps()} aria-label="customized table">
           <TableHead>
             {
@@ -95,5 +95,9 @@ const WrapperSpinner = styled('div')(() => ({
   alignItems: "center",
   justifyContent: "center"
 }))
+
+const TableContainerStyles = {
+  minHeight: "80vh"
+}
 
 export default CustomTable;
