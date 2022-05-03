@@ -43,11 +43,12 @@ export type SearchResponse = {
 };
 
 const searchByTermsService = async (
-  terms: string
+  terms: string,
+  limit = 20
 ): Promise<SearchResponse | ErrorResponse> => {
   try {
     const parseTerms = slugify(terms, "+");
-    const url = `/search?term=${parseTerms}`;
+    const url = `/search?term=${parseTerms}&limit=${limit + 1}`;
     const response = await httpClient().get<SearchResponse>(url);
     return response;
   } catch (err) {

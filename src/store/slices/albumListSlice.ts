@@ -4,23 +4,35 @@ import searchByTermsService, {
 } from "./../../services/searchByTerms";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import {
+  filterBySongs,
+  orderByArtists,
+  songsListToAlbumDTO,
+} from "./utils/albumListSliceUtils";
 
 export interface AlbumListState {
-  albums: null | SearchAlbumResult[];
+  albums: [] | SearchAlbumResult[];
+  currentPage: number;
   loading: boolean;
   error: any;
 }
 
+type searchByTermsParams = {
+  terms: string;
+  limit?: number;
+};
+
 const initialState: AlbumListState = {
-  albums: null,
+  albums: [],
   loading: false,
   error: null,
+  currentPage: 1,
 };
 
 export const searchByTermsAsync = createAsyncThunk(
-  "albums/searchByTemrs",
-  async (terms: string) => {
-    const response = await searchByTermsService(terms);
+  "albums/searchByTrms",
+  async ({ terms, limit }: searchByTermsParams) => {
+    const response = await searchByTermsService(terms, limit);
     return response;
   }
 );
@@ -47,9 +59,19 @@ export const albumListSlice = createSlice({
 });
 
 // Selectors
-export const selectAlbumList = (state: RootState) => state.albumList.albums;
-export const selectAlbumListStatus = (state: RootState) =>
+export const selectAlbums = (state: RootState) => {
+  const albums = state.albumList.albums;
+  if (!albums.length) return albums;
+
+  const songs = filterBySongs(albums as SearchAlbumResult[]).sort(
+    orderByArtists
+  );
+  const albumsDTO = songsListToAlbumDTO(songs);
+
+  return albumsDTO;
+};
+export const selectAlbumsLoading = (state: RootState) =>
   state.albumList.loading;
-export const selectAlbumListError = (state: RootState) => state.albumList.error;
+export const selectAlbumsError = (state: RootState) => state.albumList.error;
 
 export default albumListSlice.reducer;
