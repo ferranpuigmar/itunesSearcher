@@ -55,7 +55,7 @@ const AlbumList = ({ albums, loading = false }: AlbumListProps) => {
         </Wrapper>
       </GridToolbar>
       {!albums.length && !loading
-        ? <NoResults><Typography variant="h5">No hay resultados</Typography></NoResults> :
+        ? <NoResults><Typography variant="h5">No results...</Typography></NoResults> :
         <Wrapper styles={ViewsWrapper} >
           {layoutViewTable ? (<CustomTable data={albums} columns={columns} loading={loading} />) : (<CustomGrid data={albums} loading={loading} />)}
         </Wrapper>

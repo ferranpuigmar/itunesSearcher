@@ -1,6 +1,5 @@
 import AlbumList from "modules/home/components/albumList/AlbumList";
 import Header from "modules/home/components/header/Header";
-import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
 import { searchByTermsAsync, selectAlbums, selectAlbumsLoading } from "store/slices/albumListSlice";
 
@@ -12,10 +11,6 @@ const App = () => {
   const handleChange = async (value: string) => {
     dispatch(searchByTermsAsync({ terms: value }))
   }
-
-  useEffect(() => {
-    console.log('albums: ', albums)
-  }, [albums])
 
   return (
     <div id="App">
