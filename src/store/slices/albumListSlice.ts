@@ -32,8 +32,12 @@ const initialState: AlbumListState = {
 export const searchByTermsAsync = createAsyncThunk(
   "albums/searchByTrms",
   async ({ terms, limit }: searchByTermsParams) => {
-    const response = await searchByTermsService(terms, limit);
-    return response;
+    try {
+      const response = await searchByTermsService(terms, limit);
+      return response;
+    } catch (error) {
+      return [];
+    }
   }
 );
 
@@ -53,6 +57,7 @@ export const albumListSlice = createSlice({
       })
       .addCase(searchByTermsAsync.rejected, (state, action) => {
         state.loading = false;
+        state.albums = [];
         state.error = action.payload;
       });
   },
