@@ -14,11 +14,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -39,8 +34,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Pendings
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+It has been my first once with react-table and material and I expend more time that I want in it, so the test are pending to do. Also the pagination, I see an example in material documentation, and its seems to be easy, but I have more time.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Also I should implement a error boundary layer in order avoid white screens.
+
+Thanks by the technical test, It has been very funny :)
