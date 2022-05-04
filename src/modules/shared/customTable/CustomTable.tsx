@@ -87,7 +87,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const TableContainerStyles = {
-  maxHeight: "80vh"
+  maxHeight: "75vh"
 }
 
 export default CustomTable;
