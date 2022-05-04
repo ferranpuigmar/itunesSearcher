@@ -61,11 +61,9 @@ export const albumListSlice = createSlice({
 // Selectors
 export const selectAlbums = (state: RootState) => {
   const albums = state.albumList.albums;
-  if (!albums.length) return albums;
+  if (!albums.length) return [];
 
-  const songs = filterBySongs(albums as SearchAlbumResult[]).sort(
-    orderByArtists
-  );
+  const songs = filterBySongs(albums).sort(orderByArtists);
   const albumsDTO = songsListToAlbumDTO(songs);
 
   return albumsDTO;

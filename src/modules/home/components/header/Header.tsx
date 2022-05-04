@@ -1,4 +1,4 @@
-import { alpha, AppBar, Box, Container, styled, Toolbar, Typography } from '@mui/material';
+import { alpha, AppBar, Container, styled, Toolbar, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { ReactComponent as IconLogo } from 'assets/itunes_logo.svg';

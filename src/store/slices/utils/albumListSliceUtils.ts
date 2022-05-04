@@ -13,7 +13,8 @@ export const orderByArtists = (a: SearchAlbumResult, b: SearchAlbumResult) => {
 export const songsListToAlbumDTO = (
   data: SearchAlbumResult[]
 ): TableSearhAlbumResult[] => {
-  const result = data.map((row) => ({
+  const result = data.map((row, index) => ({
+    id: `${row.artistId}_${index}`,
     artistName: row.artistName,
     collectionName: row.collectionName,
     artworkUrl100: row.artworkUrl100,

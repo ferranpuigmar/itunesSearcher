@@ -3,12 +3,12 @@ import React from 'react'
 
 export type WrapperProps = {
   children: React.ReactNode;
-  styles?: Record<string, string>
+  styles?: Record<string, any>
 }
 
 const Wrapper = ({ children, styles }: WrapperProps) => {
   return (
-    <Container sx={{ ...defaultStyles, ...styles }}>{children}</Container>
+    <Container style={{ ...defaultStyles, ...styles }}> {children}</Container >
   )
 }
 

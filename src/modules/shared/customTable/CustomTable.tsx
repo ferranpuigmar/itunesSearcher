@@ -1,6 +1,7 @@
-import { CircularProgress, Paper, styled, Table, TableBody, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Paper, styled, Table, TableBody, TableContainer, TableHead, TableRow } from '@mui/material';
 import { Column, useTable } from 'react-table';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import Spinner from '../spinner/Spinner';
 
 type TableProps<Data extends object> = {
   columns: Column<Data>[]
@@ -20,7 +21,7 @@ const CustomTable = <DataType extends object>({ columns, data, loading }: TableP
 
   return (
     <WrapperTable>
-      {loading && <WrapperSpinner><CircularProgress /></WrapperSpinner>}
+      {loading && <Spinner />}
       <TableContainer component={Paper} sx={TableContainerStyles}>
         <Table stickyHeader {...getTableProps()} aria-label="sticky table">
           <TableHead>
@@ -84,17 +85,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-
-const WrapperSpinner = styled('div')(() => ({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  display: 'flex',
-  alignItems: "center",
-  justifyContent: "center"
-}))
 
 const TableContainerStyles = {
   maxHeight: "80vh"
