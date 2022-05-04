@@ -69,6 +69,9 @@ const ViewsWrapper = {
 }
 
 const GridToolbar = styled(Toolbar)(({ theme }) => ({
+  position: 'sticky',
+  top: '56px',
+  zIndex: 2,
   backgroundColor: theme.palette.grey[200],
   [theme.breakpoints.up('sm')]: {
     minHeight: '56px',
