@@ -34,8 +34,10 @@ export const searchByTermsAsync = createAsyncThunk(
   async ({ terms, limit }: searchByTermsParams) => {
     try {
       const response = await searchByTermsService(terms, limit);
+      console.log("response: ", response);
       return response;
     } catch (error) {
+      console.log("error: ", error);
       return [];
     }
   }
@@ -56,6 +58,7 @@ export const albumListSlice = createSlice({
         state.albums = payload.results as SearchAlbumResult[];
       })
       .addCase(searchByTermsAsync.rejected, (state, action) => {
+        console.log("hola...");
         state.loading = false;
         state.albums = [];
         state.error = action.payload;
@@ -66,7 +69,7 @@ export const albumListSlice = createSlice({
 // Selectors
 export const selectAlbums = (state: RootState) => {
   const albums = state.albumList.albums;
-  if (!albums.length) return [];
+  if (!albums?.length) return [];
 
   const songs = filterBySongs(albums).sort(orderByArtists);
   const albumsDTO = songsListToAlbumDTO(songs);
